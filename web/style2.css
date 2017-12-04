@@ -1,0 +1,15 @@
+#buttons{
+    width: 50%;
+    float: left;
+    margin-top: 15%;
+    background-color: rgba(210, 195, 23, 0.43);
+}
+#image{
+    float: right;
+    text-align: center;
+    width: 50%;
+    background-color: rgba(0, 183, 125, 0.77);
+}
+#input{
+    background-color: rgba(0, 142, 142, 0.53);
+}

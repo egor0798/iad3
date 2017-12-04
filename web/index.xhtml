@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <h:head>
+        <title>Lab №3</title>
+        <link href="style1.css" rel="stylesheet" type="text/css"/>
+
+    </h:head>
+    <h:body>
+        <div id="container">
+
+            <div id="pageHeader">
+                <h1>Lab №3</h1>
+                <h2> EGOR &amp; AJIEKCEN </h2>
+                <h3> Variant №375 </h3>
+            </div>
+            <div id="maindiv">
+                <div id="time">
+
+                </div>
+                <div id="date">
+
+                </div>
+                <script type="text/javascript">
+                    //<![CDATA[
+                    digitalWatch();
+                    function digitalWatch() {
+                        var date = new Date();
+                        var hours = date.getHours();
+                        var minutes = date.getMinutes();
+                        if (hours < 10) hours = "0" + hours;
+                        if (minutes < 10) minutes = "0" + minutes;
+                        document.getElementById('time').innerHTML = hours + ":" + minutes;
+                        document.getElementById('date').innerHTML = date.getUTCDate() + "." + (date.getUTCMonth()+1) + "." + date.getFullYear();
+                        setTimeout('digitalWatch()', 5000);
+                    }
+                    //]]>
+                </script>
+            </div>
+            <div id="nextpage" style="text-align: center">
+                <h:form>
+                    <h:button id="nextp" value="Main Page" outcome="nextPage"/>
+                </h:form>
+            </div>
+        </div>
+    </h:body>
+</f:view>
+</html>

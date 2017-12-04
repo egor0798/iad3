@@ -1,0 +1,25 @@
+body{
+    background-image: url("resources/img/space.jpg");
+}
+
+
+#pageHeader{
+    text-align: center;
+    font-size: 30px;
+    color: white;
+
+}
+
+#time{
+    font-size: 100px;
+    color: #ff1012;
+    text-shadow: 1px 1px #aa0024, 2px 2px white;
+    text-align: center;
+}
+
+#date{
+    font-size: 60px;
+    color: #ff1012;
+    text-shadow: 1px 1px #aa0024, 2px 2px white;
+    text-align: center;
+}

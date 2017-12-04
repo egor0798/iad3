@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui">
+<script src="scripts.js" type="text/javascript"/>
+<f:view>
+    <h:head>
+        <link href="style2.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body>
+        <div id="input">
+
+            <!--главный блок с кнопками и таблицей-->
+            <div id="buttons">
+                <h:form id="form1">
+
+                    <!--кнопки ввода значений, нормально работают вроде, только валидацию запилить надо-->
+                <h:panelGrid id="buttonPanel" columns="2" cellpadding="5" styleClass="ui-grid">
+                    <h:outputLabel for="x" value="Alter X: " />
+                    <p:spinner id="x" value="#{mainbean.x}" stepFactor="1" min="-3" max="3"/>
+                    <!--засчет мин и макс ограничиваются значения спиннера-->
+
+
+                    <h:outputLabel for="y" value="Alter Y: "/>
+                    <h:inputText id="y" style="text-align: right" value="#{mainbean.y}" validatorMessage="Wrong range: y should be between -3 and 5" >
+                        <f:validateDoubleRange minimum="-3.0" maximum="5" for="y"/>
+                    </h:inputText>
+                    <!--Это вроде как тоже валидация, когда-то работала, сейчас хз-->
+
+                    <h:outputLabel for="y" value="Alter R: "/>
+                    <p:commandButton id="r" name="r" value="#{mainbean.r}" update="buttonPanel" actionListener="#{mainbean.actionB}"/>
+                </h:panelGrid>
+
+                    <!--главная кнопка, добаваляет строку в таблицу-->
+                    <p:commandButton value="Fucking button" id="ajax" update="resTable" actionListener="#{mainbean.addButtonAction}" styleClass="ui-priority-primary" ajax="true" />
+                    
+                    <div id="table">
+                        <p:dataTable id="resTable" var="res" value="#{tableBean.list}">
+                            <p:column headerText="X">
+                                <h:outputText value="#{res.x}" />
+                            </p:column>
+
+                            <p:column headerText="Y">
+                                <h:outputText value="#{res.y}" />
+                            </p:column>
+
+                            <p:column headerText="R">
+                                <h:outputText value="#{res.r}" />
+                            </p:column>
+
+                            <p:column headerText="Hit">
+                                <h:outputText value="#{res.res}" />
+                            </p:column>
+                        </p:dataTable>
+                    </div>
+                </h:form>
+            </div>
+
+            <!--неизбежно ругается на канвас, но тем не менее рисует его-->
+            <div id="image">
+                <canvas id="myCanvas" width="500" height="500"></canvas>
+            </div>
+
+        </div>
+
+
+
+    </h:body>
+</f:view>
+</html>
