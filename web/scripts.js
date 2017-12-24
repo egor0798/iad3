@@ -3,6 +3,11 @@
 //перерисуй канвас, он какой-то поехавший
 
 
+
+
+//перерисуй канвас, он какой-то поехавший
+
+
 window.onload= function() {
     var canvas = document.getElementById("myCanvas");
     var context = canvas.getContext("2d");
@@ -14,11 +19,11 @@ window.onload= function() {
     context.stroke();
 
     context.fillStyle="#0000FF";
-    context.fillRect(50,250,250,450);
+    context.fillRect(50,250,200,200);
 
     context.beginPath();
     context.moveTo(450,250);
-    context.lineTo(250,450);
+    context.lineTo(250,50);
     context.lineTo(250,250);
     context.lineTo(450,250);
     context.fillStyle="#0000FF";
